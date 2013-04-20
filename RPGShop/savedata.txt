@@ -1,0 +1,8 @@
+ID	name		lvl	Arm Wep Phy For Agi Kno Acu chp mhp
+01	Riemann		1	0	0	*	*	*	*	*	*	*
+00
+ID	 QTY
+00 
+
+
+
