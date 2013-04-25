@@ -7,12 +7,12 @@ Shop::Shop(const Inventory * inputList)
 	itemList = inputList;
 }
 
-void Shop::buy()
+void Shop::buy(int id)
 {
 	;
 }
 
-void Shop::sell()
+void Shop::sell(int id)
 {
 	;
 }
@@ -52,13 +52,54 @@ void Shop::listStock(int shopType)
 
 void Shop::consum()
 {	
-	int i;
+	int i = 0;
+	int purchase = 0;
 	cout<<"Welcome to Stims 'n Stuff!";
-	cout<<"Cell Level Emergency Regenerative Injected Compounds (CLERICs):\n";
+
+	cout<<"1: Buy or 2: Sell?";
+
+	cout<<"Cell Level Emergency Repair Injecion Kits (CLERICs):\n";
 	cout<<string(50,'-');
 	listStock(1);
+	cout<<"Enter an item ID to make a purchase or 0 to exit the store.";
+	if(purchase == 1)
+	{
+		while(cin>>hex>>purchase)
+		{
+			if(purchase)
+			{
+				buy(purchase);
+				cout<<"Enter an item ID to make a purchase or 0 to exit the store.";
+			}
+			else
+			{
+				cout<<"Thank you for your custom\n";
+				return;
+			}
+		}
+	}
+	else
+	{
+		cout<<"In your bags:\n";
+		//inputParty->showInventory();
+		while(cin>>hex>>purchase)
+		{
+			if(purchase)
+			{
+				buy(purchase);
+				cout<<"Enter an item ID to sell or 0 to exit the store.";
+			}
+			else
+			{
+				cout<<"Thank you for your custom!\n";
+				return;
+			}
+		}
+	}
+
 	pause();
 }
+
 void Shop::weap()
 {
 	listStock(2);

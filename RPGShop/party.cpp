@@ -99,7 +99,7 @@ bool Party::load()
 		}
 		i++;
 	} while(id);
-
+	
 	partyIn.close();
 	return true;
 }
@@ -224,5 +224,5 @@ const void Party::showParty()
 
 Party::~Party(void)
 {
-	
+	;
 }

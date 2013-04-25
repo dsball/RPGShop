@@ -10,7 +10,9 @@ int main()
 	
 	Assets assets;
 	assets.fill();
+	
 	Party party(assets.getInventoryPtr());
+
 	Shop shop(assets.getInventoryPtr());
 
 	if(!SetWindow(107,25))

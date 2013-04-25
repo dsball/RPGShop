@@ -3,6 +3,7 @@
 
 #include "utility.h"
 #include "Assets.h"
+#include "Party.h"
 
 class Shop
 {	
@@ -11,8 +12,8 @@ private:
 	const Inventory * itemList;
 public:
 	Shop(const Inventory * inputList);
-	void buy();
-	void sell();
+	void buy(int id);
+	void sell(int id);
 	void consum();
 	void weap();
 	void arm();
