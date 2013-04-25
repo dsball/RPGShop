@@ -1,9 +1,9 @@
-ID		name				rating	cost
-10	Clothing			0		50
-11	Leather Jacket		2		200
-12	Armor Vest			6		400
-13	Armor jacket		8		700
-14	Full Body Armor		10		1500
+ID	name			armor	cost
+10	Clothing		0		50
+12	Vest			6		400
+13	Jacket			8		700
+14	Full_Body		10		1000
+00
 
 
 

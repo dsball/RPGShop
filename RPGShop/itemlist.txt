@@ -1,4 +1,0 @@
-ID		name		hpFix
-30	StimPack I		25
-31	Stimpack II		65
-32	StimPack III	100

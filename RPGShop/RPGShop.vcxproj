@@ -60,6 +60,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Assets.cpp" />
     <ClCompile Include="driver.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="Pack.cpp" />
@@ -69,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\SortedArrayList\SortedArrayList\menu.h" />
+    <ClInclude Include="Assets.h" />
     <ClInclude Include="pack.h" />
     <ClInclude Include="party.h" />
     <ClInclude Include="Shop.h" />
@@ -77,8 +79,9 @@
   <ItemGroup>
     <None Include="armorlist.txt" />
     <None Include="plotsummary.txt" />
+    <None Include="savedata.txt" />
     <None Include="splash.txt" />
-    <None Include="itemlist.txt" />
+    <None Include="consumlist.txt" />
     <None Include="weaponlist.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -33,6 +33,9 @@
     <ClCompile Include="Pack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Assets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utility.h">
@@ -50,12 +53,12 @@
     <ClInclude Include="pack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Assets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="splash.txt">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="itemlist.txt">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="weaponlist.txt">
@@ -68,6 +71,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="savedata.txt">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="consumlist.txt">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

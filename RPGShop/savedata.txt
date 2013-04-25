@@ -1,8 +1,9 @@
-ID	name		lvl	Arm Wep Phy For Agi Kno Acu chp mhp
-01	Riemann		1	0	0	*	*	*	*	*	*	*
+ID	name		     lvl Arm Wep Str Sta Agi Kno Wit chp mhp
+1   asdf                1   0     0     12    15    12    14    15    158   158  
+2   qwer                1   0     0     17    14    17    9     13    142   142  
+3   xczv                1   0     0     10    13    10    12    9     161   161  
+4   dfsg                1   0     0     8     16    15    14    9     151   151  
 00
-ID	 QTY
-00 
+ID  QTY
 
-
-
+00

@@ -1,0 +1,5 @@
+ID	name			hpFix	cost
+30	StimPack_I		25		30
+31	Stimpack_II		65		100
+32	StimPack_III	100		300
+00

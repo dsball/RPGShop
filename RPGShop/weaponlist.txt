@@ -1,10 +1,11 @@
-ID		name	       	shots/turn  dmg/rnd		accuracy	price
-20	Light Pistol        2			5			75		150
-21	Heavy Pistol		1			12			75		300
-22	Submachine Gun		4			8			65		500
-23	Hunting Rifle		1			35			90		750
-24	Assault Rifle		3			15			80		1000
-25	Gauss Rifle			1			50			90		1500
+ID		name	       	shots/turn  dmg/rnd		accuracy	cost
+20	Light_Pistol        2			5			75			150
+21	Heavy_Pistol		1			12			75			300
+22	Submachine_Gun		4			8			65			500
+23	Hunting_Rifle		1			35			90			750
+24	Assault_Rifle		3			15			80			1000
+25	Gauss_Rifle			1			50			90			1500
+00
 
 
 

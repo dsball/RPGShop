@@ -184,3 +184,48 @@ void screensaver()
 	}
 }
 
+string intToStr(int convertMe)
+{
+	stringstream ss;
+	ss<<convertMe;
+	return ss.str();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//THIS CODE IS FROM http://www.3dbuzz.com/vbforum/showthread.php?102195-How-do-you-resize-a-console-window-in-C //
+// It is used to rezise the console and returns false if resizing failed. **I modified the code to not have     //
+// multiple returns.**																							//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool SetWindow(int Width, int Height) 
+{ 
+	bool success = true;
+	_COORD coord; 
+	coord.X = Width; 
+	coord.Y = Height; 
+
+	_SMALL_RECT Rect; 
+	Rect.Top = 0; 
+	Rect.Left = 0; 
+	Rect.Bottom = Height - 1; 
+	Rect.Right = Width - 1; 
+
+	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE); 
+	if (Handle == NULL) 
+	{ 
+		cout<<"Failure in getting the handle\n"<<GetLastError(); 
+		success = false; 
+	} 
+
+	if(!SetConsoleScreenBufferSize(Handle, coord)) 
+	{ 
+		cout<<"Failure in setting buffer size\n"<<GetLastError(); 
+		success = false; 
+	} 
+
+	if(!SetConsoleWindowInfo(Handle, TRUE, &Rect)) 
+	{ 
+		cout<<"Failure in setting window size\n"<<GetLastError(); 
+		success = false;  
+    } 
+	return success; 
+} 
