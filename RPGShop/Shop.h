@@ -11,7 +11,7 @@ private:
 	int funds;
 	const Inventory * itemList;
 public:
-	Shop(const Inventory * inputList);
+	Shop(const Inventory*);
 	void buy(int id);
 	void sell(int id);
 	void consum();

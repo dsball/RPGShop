@@ -81,7 +81,6 @@ void Shop::consum()
 	else
 	{
 		cout<<"In your bags:\n";
-		//inputParty->showInventory();
 		while(cin>>hex>>purchase)
 		{
 			if(purchase)

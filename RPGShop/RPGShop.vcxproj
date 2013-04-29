@@ -60,29 +60,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Assets.cpp" />
-    <ClCompile Include="driver.cpp" />
-    <ClCompile Include="menu.cpp" />
-    <ClCompile Include="Pack.cpp" />
-    <ClCompile Include="party.cpp" />
-    <ClCompile Include="Shop.cpp" />
-    <ClCompile Include="utiliity.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\SortedArrayList\SortedArrayList\menu.h" />
-    <ClInclude Include="Assets.h" />
-    <ClInclude Include="pack.h" />
-    <ClInclude Include="party.h" />
-    <ClInclude Include="Shop.h" />
-    <ClInclude Include="utility.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="armorlist.txt" />
     <None Include="plotsummary.txt" />
     <None Include="savedata.txt" />
     <None Include="splash.txt" />
     <None Include="consumlist.txt" />
     <None Include="weaponlist.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Pack.cpp" />
+    <ClCompile Include="Party.cpp" />
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="Utiliity.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Assets.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Pack.h" />
+    <ClInclude Include="Party.h" />
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

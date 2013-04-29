@@ -2,7 +2,7 @@
 #define PARTY_INTERFACE
 
 #include "utility.h"
-#include "pack.h"
+#include "Pack.h"
 #include "Shop.h"
 #include "Assets.h"
 

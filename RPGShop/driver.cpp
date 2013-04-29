@@ -3,6 +3,7 @@
 #include "Party.h"
 #include "Shop.h"
 #include "Assets.h"
+#include "Pack.h"
 
 int main()
 {
