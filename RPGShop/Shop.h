@@ -1,7 +1,7 @@
 #ifndef SHOP_INTERFACE
 #define SHOP_INTERFACE
 
-#include "utility.h"
+#include "Utility.h"
 #include "Assets.h"
 #include "Party.h"
 
@@ -11,7 +11,7 @@ private:
 	int funds;
 	const Inventory * itemList;
 public:
-	Shop(const Inventory*);
+	Shop(const Inventory*/* , Party * inputParty*/);
 	void buy(int id);
 	void sell(int id);
 	void consum();

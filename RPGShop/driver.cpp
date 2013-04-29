@@ -1,9 +1,9 @@
-#include "utility.h"
-#include "menu.h"
+#include "Utility.h"
+#include "Menu.h"
 #include "Party.h"
 #include "Shop.h"
 #include "Assets.h"
-#include "Pack.h"
+#include "Backpack.h"
 
 int main()
 {
@@ -14,12 +14,12 @@ int main()
 	
 	Party party(assets.getInventoryPtr());
 
-	Shop shop(assets.getInventoryPtr());
+	Shop shop(assets.getInventoryPtr()/*, &party*/);
 
-	if(!SetWindow(107,25))
-    { 
-		cout<<"Failed to resize console."; 
-    } 
+	//if(!SetWindow(107,25))
+ //   { 
+	//	cout<<"Failed to resize console."; 
+ //   } 
 	
 	Menu mainMenu("Choose An Option:");
 	Menu primeMenu("What would you like to do?");
@@ -93,7 +93,7 @@ int main()
 			break;
 		case 2:
 			cout<<"Viewing Inventory\n";
-			clearScreen();
+			//clearScreen();
 			party.showInventory();
 			pause();
 			break;

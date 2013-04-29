@@ -1,4 +1,4 @@
-#include "menu.h"
+#include "Menu.h"
 
 //default class constructor
 Menu::Menu()
@@ -26,7 +26,7 @@ void Menu::initMenu()
 	}
 }
 
-//gets menu choice from user
+//adds a menu item to the menu
 void Menu::addItem(string item)
 {
 	if(numEntries>=maxEntries)
@@ -44,12 +44,11 @@ void Menu::addItem(string item)
 	}
 	return;
 }
-//displays menu items
 
-//adds a menu item to the menu
+//displays menu items, returns an int choice from user
 int Menu::getChoice()
 {
-	clearScreen();
+	//clearScreen();
 	cout<< "\n\n\t\t"<<title<<endl<<endl;
 	for(int i = 0; i<numEntries;i++)
 	{

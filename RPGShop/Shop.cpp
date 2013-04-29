@@ -1,7 +1,7 @@
 #include "Shop.h"
 
 
-Shop::Shop(const Inventory * inputList)
+Shop::Shop(const Inventory * inputList/*, Party * inputParty*/)
 {
 	funds = 50000;
 	itemList = inputList;

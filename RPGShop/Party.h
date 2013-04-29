@@ -1,8 +1,8 @@
 #ifndef PARTY_INTERFACE
 #define PARTY_INTERFACE
 
-#include "utility.h"
-#include "Pack.h"
+#include "Utility.h"
+#include "Backpack.h"
 #include "Shop.h"
 #include "Assets.h"
 
@@ -27,7 +27,7 @@ class Party
 private:
 	const static int TEAMSIZE = 4;
 	member team[TEAMSIZE];
-	Pack partyPack;
+	Backpack partyBackpack;
 	const Inventory* itemList;
 public:
 	Party(const Inventory* inputList);

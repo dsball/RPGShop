@@ -1,6 +1,6 @@
-#include "party.h"
+#include "Party.h"
 #include "Assets.h"
-#include "utility.h"
+#include "Utility.h"
 
 Party::Party(const Inventory* inputList)
 {
@@ -41,7 +41,7 @@ bool Party::save()
 	}
 	partyOut<<"00\n";
 	partyOut<<itemCaptions<<endl;
-	partyOut << partyPack.outputForSave();
+	partyOut << partyBackpack.outputForSave();
 	partyOut<<"\n00";
 
 
@@ -95,7 +95,7 @@ bool Party::load()
 		if(id)
 		{
 			partyIn>>dec>>qty;
-			partyPack.modify(partyPack.makeNode(id, qty));
+			partyBackpack.modify(partyBackpack.makeNode(id, qty));
 		}
 		i++;
 	} while(id);
@@ -138,13 +138,13 @@ void Party::newTeam()
 
 const void Party::showInventory()
 {
-	partyPack.printList(itemList);
+	partyBackpack.printList(itemList);
 }
 
 const void Party::showParty()
 {
 	int i;
-	clearScreen();
+	//clearScreen();
 
 	cout<<"|";
 	for(i = 0 ; i<TEAMSIZE;i++)
