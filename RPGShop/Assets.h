@@ -42,6 +42,7 @@ struct Inventory
 class Assets
 {
 private:
+	int a;
 	const static int LIMIT = 10;
 	Consumable consumList[LIMIT];
 	Weapon weapList[LIMIT];

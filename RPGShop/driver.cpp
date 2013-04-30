@@ -14,12 +14,12 @@ int main()
 	
 	Party party(assets.getInventoryPtr());
 
-	Shop shop(assets.getInventoryPtr()/*, &party*/);
+	Shop shop(assets.getInventoryPtr(), &party);
 
-	//if(!SetWindow(107,25))
- //   { 
-	//	cout<<"Failed to resize console."; 
- //   } 
+	if(!SetWindow(107,25))
+    { 
+		cout<<"Failed to resize console."; 
+    } 
 	
 	Menu mainMenu("Choose An Option:");
 	Menu primeMenu("What would you like to do?");
@@ -37,8 +37,8 @@ int main()
 	primeMenu.addItem("Save and Quit)");
 	
 	shopMenu.addItem("Stims 'n Stuff");
-	shopMenu.addItem("The Arsenal");
 	shopMenu.addItem("Guardian Armor and Apparel");
+	shopMenu.addItem("The Arsenal");
 	shopMenu.addItem("Return to Base");
 
 	/*printFile("splash.txt");
@@ -76,13 +76,13 @@ int main()
 				switch(choice)
 				{
 				case 1:
-					shop.consum();
+					shop.storefront(3);
 					break;
 				case 2:
-					shop.weap();
+					shop.storefront(2);
 					break;
 				case 3:
-					shop.arm();
+					shop.storefront(1);
 					break;
 				case 4:
 					break;
@@ -93,7 +93,7 @@ int main()
 			break;
 		case 2:
 			cout<<"Viewing Inventory\n";
-			//clearScreen();
+			clearScreen();
 			party.showInventory();
 			pause();
 			break;

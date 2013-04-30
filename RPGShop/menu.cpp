@@ -48,7 +48,7 @@ void Menu::addItem(string item)
 //displays menu items, returns an int choice from user
 int Menu::getChoice()
 {
-	//clearScreen();
+	clearScreen();
 	cout<< "\n\n\t\t"<<title<<endl<<endl;
 	for(int i = 0; i<numEntries;i++)
 	{

@@ -17,17 +17,23 @@ const void Backpack::printList(const Inventory * itemList)
 	cout<<left<<setw(4)<<"ID"<<setw(15)<<"Name"<<setw(4)<<"QTY\n";
 	cout<<string(50,'-')<<endl;
 	while(current)
-	{
-		cout<<itemList->consum[current->id%16-1].name<<" "<<current->qty<<endl;
+	{ 
+		int category = current->id/16;
+
+		switch(category)
+		{
+		case 1:
+			cout<<left<<setw(4)<<hex<<current->id<<setw(15)<<itemList->arm[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
+			break;
+		case 2:
+			cout<<left<<setw(4)<<hex<<current->id<<setw(15)<<itemList->weap[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
+			break;
+		case 3:
+			cout<<left<<setw(4)<<hex<<current->id<<setw(15)<<itemList->consum[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
+			break;
+		}
 		current = current->next;
 	}
-	cout<<"Enter an item ID for more information: ";
-	do
-	{
-		cin>>choice;
-		;
-	}while(!found);
-
 }
 
 const string Backpack::outputForSave()

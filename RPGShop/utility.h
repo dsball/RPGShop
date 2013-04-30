@@ -37,7 +37,7 @@ fileToString(ifstream &inFile)  void      stores an ifstream in a string and ret
 #include<iomanip>
 #include<fstream>
 #include<vector>
-//#include<windows.h>
+#include<windows.h>
 #include<stdio.h>
 #include<sstream>
 
@@ -61,11 +61,11 @@ using std::stringstream;
 void pause();
 bool printFile(string filename);
 string fileToString(ifstream&);
-//void cursorpos( int, int);
-//void screensaver();
-//void colorset(WORD);
-//void clearScreen();
+void cursorpos( int, int);
+void screensaver();
+void colorset(WORD);
+void clearScreen();
 string intToStr(int convertMe);
-//bool SetWindow(int Width, int Height) ;
+bool SetWindow(int Width, int Height) ;
 
 #endif

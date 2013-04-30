@@ -7,6 +7,11 @@ Party::Party(const Inventory* inputList)
 	itemList = inputList;
 }
 
+void Party::addToInventory(int id, int qty)
+{
+	partyBackpack.modify(partyBackpack.makeNode(id, qty));
+}
+
 bool Party::save()
 {
 	
@@ -144,7 +149,7 @@ const void Party::showInventory()
 const void Party::showParty()
 {
 	int i;
-	//clearScreen();
+	clearScreen();
 
 	cout<<"|";
 	for(i = 0 ; i<TEAMSIZE;i++)

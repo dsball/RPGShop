@@ -10,13 +10,12 @@ class Shop
 private:
 	int funds;
 	const Inventory * itemList;
+	Party * activeParty;
 public:
-	Shop(const Inventory*/* , Party * inputParty*/);
-	void buy(int id);
+	Shop(const Inventory* , Party * inputParty);
+	bool buy(int id);
 	void sell(int id);
-	void consum();
-	void weap();
-	void arm();
+	void storefront(int shopType);
 	void listStock(int shopType);
 	~Shop(void);
 };

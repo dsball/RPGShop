@@ -2,7 +2,6 @@
 #define Backpack_INTERFACE
 
 #include "Utility.h"
-#include "Shop.h"
 #include "Assets.h"
 
 struct Item

@@ -3,7 +3,6 @@
 
 #include "Utility.h"
 #include "Backpack.h"
-#include "Shop.h"
 #include "Assets.h"
 
 struct member
@@ -27,8 +26,8 @@ class Party
 private:
 	const static int TEAMSIZE = 4;
 	member team[TEAMSIZE];
-	Backpack partyBackpack;
 	const Inventory* itemList;
+	Backpack partyBackpack;
 public:
 	Party(const Inventory* inputList);
 	void newTeam();
@@ -37,7 +36,7 @@ public:
 	void findItem();
 	const void showParty();
 	const void showInventory();
-	void addToInventory();
+	void addToInventory(int id, int qty);
 	~Party(void);
 };
 

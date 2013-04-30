@@ -108,8 +108,6 @@ const Inventory* Assets::getInventoryPtr() const
 	return &inventory;
 }
 
-
-
 Assets::~Assets()
 {
 	;

@@ -1,19 +1,11 @@
-﻿Build started 4/28/2013 10:03:26 PM.
+﻿Build started 4/30/2013 12:54:05 PM.
      1>Project "C:\Users\daniel\Documents\GitHub\RPGShop\RPGShop\RPGShop.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "Debug\RPGShop.unsuccessfulbuild".
+         Creating "Debug\RPGShop.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Backpack.cpp Driver.cpp Party.cpp Shop.cpp
-         Party.cpp
-     1>c:\users\daniel\documents\github\rpgshop\rpgshop\shop.h(14): warning C4138: '*/' found outside of comment
-         Generating Code...
-         Compiling...
-         Driver.cpp
-     1>c:\users\daniel\documents\github\rpgshop\rpgshop\shop.h(14): warning C4138: '*/' found outside of comment
-         Generating Code...
-         Skipping... (no relevant changes detected)
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Shop.cpp
          Shop.cpp
-         Backpack.cpp
+     1>c:\users\daniel\documents\github\rpgshop\rpgshop\shop.cpp(64): warning C4715: 'Shop::buy' : not all control paths return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\daniel\Documents\GitHub\RPGShop\Debug\RPGShop.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\RPGShop.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\daniel\Documents\GitHub\RPGShop\Debug\RPGShop.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\daniel\Documents\GitHub\RPGShop\Debug\RPGShop.lib" /MACHINE:X86 Debug\Assets.obj
          Debug\Driver.obj
@@ -33,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.52
+Time Elapsed 00:00:01.18
