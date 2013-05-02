@@ -1,8 +1,8 @@
 ID	name			armor	cost
 10	Clothing		0		50
-12	Vest			6		400
-13	Jacket			8		700
-14	Full_Body		10		1000
+11	Vest			6		400
+12	Jacket			8		700
+13	Full_Body		10		1000
 00
 
 

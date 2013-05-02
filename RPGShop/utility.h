@@ -62,7 +62,6 @@ void pause();
 bool printFile(string filename);
 string fileToString(ifstream&);
 void cursorpos( int, int);
-void screensaver();
 void colorset(WORD);
 void clearScreen();
 string intToStr(int convertMe);

@@ -34,17 +34,17 @@ int main()
 	primeMenu.addItem("View Party");
 	primeMenu.addItem("Rest");
 	primeMenu.addItem("Explore the Arc");
-	primeMenu.addItem("Save and Quit)");
+	primeMenu.addItem("Save and Quit");
 	
 	shopMenu.addItem("Stims 'n Stuff");
-	shopMenu.addItem("Guardian Armor and Apparel");
 	shopMenu.addItem("The Arsenal");
+	shopMenu.addItem("Guardian Armor and Apparel");
 	shopMenu.addItem("Return to Base");
 
-	/*printFile("splash.txt");
+	printFile("splash.txt");
 	Sleep(2000);
 	printFile("plotsummary.txt");
-	pause();*/
+	pause();
 	
 	choice = mainMenu.getChoice();
 	switch(choice)
@@ -88,8 +88,6 @@ int main()
 					break;
 				}
 			}
-
-			pause();
 			break;
 		case 2:
 			cout<<"Viewing Inventory\n";
@@ -103,15 +101,16 @@ int main()
 			pause();
 			break;
 		case 4:
-			cout<<"Rest(Not Yet Implemented)";
+			cout<<"Rest (Not Yet Implemented)\n";
 			pause();
 			break;
 		case 5:
-			cout<<"Exploring the Arc (Not Yet Implemented)";
+			cout<<"Exploring the Arc (Not Yet Implemented)\n";
+			pause();
 			break;
 		case 6:
 			party.save();
-			cout<<"You'll be back. They always come back.";
+			cout<<"You'll be back. They always come back.\n";
 			pause();
 			break;
 		}

@@ -1,3 +1,25 @@
+/*------------------------------------Assets.h
+Purpose: provides general utility functions, headers, and generic using declarations.
+
+--- Member Data ---
+Name            Type           Description
+-------------------------------------------------------------------------------------------
+LIMIT           INT	           size of arrays
+consumList[]    Consumable     Array of Consumables, holds data from consumables file
+weapList[]      Weapon         Array of Weapons, holds data from weapons file
+armList[]       Armor          Array of Armors, holds data from armors file
+inventory       Inventory      struct of arrays
+
+--- Functions ---
+Name                    Return            Description; Parameter description
+--------------------------------------------------------------------------------------------
+Assets                  none              initializes arrays
+fill                    bool              fills arrays with data from files
+getInventoryPtr         const Inventory*  returns pointer to aggregate inventory struct
+~Assets                 none              default destructor
+*/
+
+
 #ifndef ASSETS_INTERFACE
 #define ASSETS_INTERFACE
 
@@ -42,7 +64,6 @@ struct Inventory
 class Assets
 {
 private:
-	int a;
 	const static int LIMIT = 10;
 	Consumable consumList[LIMIT];
 	Weapon weapList[LIMIT];
@@ -52,7 +73,6 @@ private:
 public:
 	Assets();
 	bool fill();
-	void printAll();
 	const Inventory* getInventoryPtr() const;
 	~Assets();
 };

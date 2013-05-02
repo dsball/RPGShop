@@ -1,5 +1,6 @@
 #include "Assets.h"
 
+//initializes arrays
 Assets::Assets()
 {
 	inventory.numc = 0;
@@ -9,24 +10,7 @@ Assets::Assets()
 	inventory.consum = consumList;
 	inventory.weap = weapList;
 }
-
-void Assets::printAll()
-{
-	int i;
-	for(i=0 ; i<inventory.numc ; i++)
-	{
-		cout<<inventory.consum[i].name<<endl;
-	}
-	for(i=0 ; i<inventory.numw ; i++)
-	{
-		cout<<inventory.weap[i].name<<endl;
-	}
-	for(i=0 ; i<inventory.numa ; i++)
-	{
-		cout<<inventory.arm[i].name<<endl;
-	}
-}
-
+//fill arrays from files
 bool Assets::fill()
 {
 	string junk;
@@ -102,12 +86,12 @@ bool Assets::fill()
 	itemIn.close();
 	return true;
 }
-
+//return pointer to inventory aggregate struct
 const Inventory* Assets::getInventoryPtr() const
 {
 	return &inventory;
 }
-
+//default destructor
 Assets::~Assets()
 {
 	;

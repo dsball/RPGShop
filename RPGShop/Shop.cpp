@@ -1,13 +1,14 @@
 #include "Shop.h"
 
 
+//Initializes shop funds, stock, and party being served
 Shop::Shop(const Inventory * inputList, Party * inputParty)
 {
 	funds = 50000;
 	itemList = inputList;
 	activeParty = inputParty;
 }
-
+//Purchase an item and add it to the party inventory
 bool Shop::buy(int id)
 {
 	int qty;
@@ -47,7 +48,6 @@ bool Shop::buy(int id)
 	default:
 		return false;
 	}
-	
 	if(valid)
 	{
 		cout<<"How many: ";
@@ -57,17 +57,36 @@ bool Shop::buy(int id)
 			cin.sync();
 			cout<<"Could you repeat that: ";
 		}
-		activeParty->addToInventory(id, qty);
+		if(qty > 0)
+		{
+			return activeParty->addToInventory(id, qty);
+		}
 	}
 
-	
+	return false;
 }
-
-void Shop::sell(int id)
+//Sell item from party inventory
+bool Shop::sell(int id)
 {
-	;
-}
+	int qty;
 
+	if(activeParty->findItem(id)->id != id)
+	{
+		return false;
+	}
+	else
+	{
+		cout<<"How many would you like to sell: ";
+		while(!(cin>>qty))
+		{
+			cin.clear();
+			cin.sync();
+			cout<<"I'm sorry, could you repeat that: ";
+		}
+		return activeParty->addToInventory(id, -qty);
+	}
+}
+//lists stock available at a store
 void Shop::listStock(int shopType)
 {
 	int i = 0;
@@ -101,51 +120,86 @@ void Shop::listStock(int shopType)
 		break;
 	}
 }
-
+//buy/sell/exit interface for stores
 void Shop::storefront(int shopType)
 {	
 	int i = 0;
-	int purchase = 0;
+	int itemID;
+	string title = "junk";
+	int choice = 0;
 
-	clearScreen();
 	switch(shopType)
 	{
 	case 3:
-		cout<<"Welcome to Stims 'n Stuff!\n";
+		title = "Welcome to Stims 'n Stuff!";
 		break;
 	case 2:
-		cout<<"Welcome to the Armory!\n";
+		title = "Welcome to the Armory!";
 		break;
 	case 1:
-		cout<<"Welcome to Guardian Armor and Apparel!\n";
+		title = "Welcome to Guardian Armor and Apparel!";
 		break;
-	default:
-		exit(0);
 	}
-	cout<<string(50,'-')<<endl;
-	listStock(shopType);
-		
-	cout<<"Enter an item ID to make a purchase or 0 to exit the store: ";
-	while(cin>>purchase)
+
+	Menu shopMenu(title);
+	shopMenu.addItem("Buy");
+	shopMenu.addItem("Sell");
+	shopMenu.addItem("exit");
+
+	while(choice != 3)
 	{
-		if(purchase)
+		choice = shopMenu.getChoice();
+		switch(choice)
 		{
-			if(purchase/16 != shopType || !buy(purchase))
+		case 1:
+			do
 			{
-				cout<<"I'm sorry, I was unable to complete your order.\n";
-			}
-			cout<<"Enter an item ID to make a purchase or 0 to exit the store: ";
-		}
-		else
-		{
-			cout<<"Thank you for your custom\n";
-			return;
+				clearScreen();
+				cout<<"Available Items\n";
+				cout<<string(50,'-')<<endl;	
+				listStock(shopType);
+				cout<<string(50,'-')<<endl;	
+				cout<<"Enter an item ID to make a purchase or 0 to return to the store menu: ";
+				if(cin>>itemID)
+				{
+					if(itemID && (itemID/16 != shopType || !buy(itemID)))
+					{
+						cout<<"I'm sorry, there was a problem with your order.\n";
+						Sleep(1000);
+					}
+				}
+			}while(itemID);
+			break;
+		case 2:
+			do
+			{
+				clearScreen();
+				cout<<"Your Items\n";
+				cout<<string(50,'-')<<endl;	
+				activeParty->showInventory();
+				cout<<string(50,'-')<<endl;	
+				cout<<"Enter the ID of the item to sell or 0 to return to the store menu: ";
+				if(cin>>itemID)
+				{
+					if(itemID)
+					{
+						if(!sell(itemID))
+						{
+							cout<<"I'm sorry, I was unable to complete your order.\n";
+							Sleep(500);
+						}
+					}
+				}
+			}while(itemID);
+			break;
+		case 3:
+			cout<<"Thank you for your custom";
+			Sleep(1000);
+			break;
 		}
 	}
 }
-
-
-
+//default destructor
 Shop::~Shop()
 {
 	;

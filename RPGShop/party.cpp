@@ -2,22 +2,28 @@
 #include "Assets.h"
 #include "Utility.h"
 
+//initializes item list
 Party::Party(const Inventory* inputList)
 {
 	itemList = inputList;
 }
-
-void Party::addToInventory(int id, int qty)
+//adds a node to the inventory or modifies an existing node
+bool Party::addToInventory(int id, int qty)
 {
-	partyBackpack.modify(partyBackpack.makeNode(id, qty));
+	return partyBackpack.modify(partyBackpack.makeNode(id, qty));
 }
-
+//finds an item or the address of the nearest match with a lower id value or null if the inventory is empty
+Item * Party::findItem(int id)
+{
+	return partyBackpack.findNode(id);
+}
+//saves a team and inventory to file
 bool Party::save()
 {
 	
 	ofstream partyOut;
 
-	string memberCaptions = "ID	name		     lvl Arm Wep Str Sta Agi Kno Wit chp mhp";
+	string memberCaptions = "ID	name		     lvl  Arm  Wep  Str Sta  Agi  Kno  Wit  chp  mhp";
 	string itemCaptions = "ID  QTY";
 	int i = 0;
 
@@ -54,7 +60,7 @@ bool Party::save()
 
 	return true;
 };
-
+//loads a team and inventory from memory 
 bool Party::load()
 {
 	ifstream partyIn;
@@ -108,7 +114,7 @@ bool Party::load()
 	partyIn.close();
 	return true;
 }
-
+//creates a new team and randomizes initial stats
 void Party::newTeam()
 {
 	srand(int(time(NULL)));
@@ -140,12 +146,12 @@ void Party::newTeam()
 		team[i].currhp = team[i].maxhp;
 	}
 }
-
+//displays party inventory
 const void Party::showInventory()
 {
 	partyBackpack.printList(itemList);
 }
-
+//displays party stats and equipped items
 const void Party::showParty()
 {
 	int i;
@@ -226,7 +232,7 @@ const void Party::showParty()
 	}
 	cout<<endl;
 }
-
+//default deconstructor
 Party::~Party(void)
 {
 	;

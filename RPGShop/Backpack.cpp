@@ -1,13 +1,12 @@
 #include "Backpack.h"
 
-
+//initializes linked list pointers
 Backpack::Backpack()
 {
 	tempNode = nullptr;
 	head = nullptr;
 }
-
-
+//prints a list of backpack contents
 const void Backpack::printList(const Inventory * itemList)
 {
 	int choice;
@@ -23,19 +22,21 @@ const void Backpack::printList(const Inventory * itemList)
 		switch(category)
 		{
 		case 1:
-			cout<<left<<setw(4)<<hex<<current->id<<setw(15)<<itemList->arm[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
+			cout<<left<<setw(4)<<current->id<<setw(15)<<itemList->arm[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
 			break;
 		case 2:
-			cout<<left<<setw(4)<<hex<<current->id<<setw(15)<<itemList->weap[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
+			cout<<left<<setw(4)<<current->id<<setw(15)<<itemList->weap[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
 			break;
 		case 3:
-			cout<<left<<setw(4)<<hex<<current->id<<setw(15)<<itemList->consum[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
+			cout<<left<<setw(4)<<current->id<<setw(15)<<itemList->consum[current->id%16].name<<dec<<setw(4)<<current->qty<<endl;
 			break;
+		default:
+			cout<<left<<setw(4)<<current->id<<"ITEM ID ERROR, ID DOES NOT EXIST!\n";
 		}
 		current = current->next;
 	}
 }
-
+//outputs a formatted string containing pack contents to be appended to party save data
 const string Backpack::outputForSave()
 {
 	string saveString;
@@ -54,7 +55,7 @@ const string Backpack::outputForSave()
 	getline(saveStream, saveString, '!');
 	return saveString;
 }
-
+//creates a temporary node with item ID and quantity to be added/removed
 Item* Backpack::makeNode(int id, int qty)
 {
 	tempNode = new Item;
@@ -71,7 +72,7 @@ Item* Backpack::makeNode(int id, int qty)
 	return tempNode;
 
 }
-
+//Returns the address of: the node with the ID, the closest node if not found, null if empty
 Item* Backpack::findNode(int id)
 {
 	Item *tempNode = head;
@@ -84,7 +85,7 @@ Item* Backpack::findNode(int id)
 	}
 	return tempNode;
 }
-
+//adds a new node or modifies/deletes an existing node depending on ID match and quantity
 bool Backpack::modify(Item * inputNode)
 {
 	
@@ -106,20 +107,24 @@ bool Backpack::modify(Item * inputNode)
 				if(tempNode->qty + inputNode->qty < 0)
 				{
 					cout<<"You don't have enough items for that!";
+					Sleep(500);
 					delete inputNode;
 					return false;
 				}
 				if(tempNode->qty + inputNode->qty == 0)
 				{
 					remove(tempNode);
-					delete inputNode;
-					return false;
+					return true;
 				}
 			}
 			tempNode->qty += inputNode->qty;	//update qty
 		}
 		else
 		{
+			if(inputNode->qty < 0)
+			{
+				return false;
+			}
 			if(tempNode->id > inputNode->id)
 			{
 				while(tempNode->prev && tempNode->prev->id > inputNode->id)
@@ -153,13 +158,32 @@ bool Backpack::modify(Item * inputNode)
 	}
 	return true;
 }
-
+// removes a node from the list
 void Backpack::remove(Item * inputNode)
 {
-	inputNode->prev->next = inputNode->next;
+	Item * prev = inputNode->prev;
+	Item * next = inputNode->next;
+	if(!prev && !next)
+	{
+		head = nullptr;
+	}
+	else if(!prev)
+	{
+		head = head->next;
+		head->prev = nullptr;
+	}
+	else if(!next)
+	{
+		prev->next = nullptr;
+	}
+	else
+	{
+		prev->next = inputNode->next;
+		next->prev = inputNode->prev;
+	}
 	delete inputNode;
 }
-
+//de-allocates dynamically assigned variables
 Backpack::~Backpack()
 {
 	Item * current = head;
@@ -171,5 +195,4 @@ Backpack::~Backpack()
 		current = head;
 	}
 	cout<<head;
-
 }
